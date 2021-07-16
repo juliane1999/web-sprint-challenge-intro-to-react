@@ -4,6 +4,25 @@ import axios from 'axios'
 import Character from './components/Character'
 import styled from 'styled-components';
 
+const StyledApp = styled.div`
+border: 5px solid black;
+background-color:transparent;
+height: 100%;
+width:100%;
+
+button{
+background-color:#3c6e71;
+padding:1rem;
+margin:0.5rem;
+width:auto;
+color:blue;
+font-size:2rem;
+border-radius:15px;
+}
+`
+
+
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -41,6 +60,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <StyledApp>
     <h1 className="Header">Characters</h1>
     {
       data.map(dat => {
@@ -50,6 +70,8 @@ const App = () => {
     {
       nameId && <Character characterData={nameId} close={closeDiv} />
     }
+    </StyledApp>
+    
     </div>
   )
   

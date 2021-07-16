@@ -3,6 +3,10 @@ import axios from 'axios';
 import React, {useState,useEffect} from 'react'
 import styled from 'styled-components'
 
+const StyledCharacter = styled.div`
+background-color:#132c3a
+`
+
 export default function Character (props) {
     const {characterData, close} = props;
     const [details,setDetails] = useState(null)
