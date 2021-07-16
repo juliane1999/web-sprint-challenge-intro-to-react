@@ -13,6 +13,7 @@ const App = () => {
   // sync up with, if any.
 
   const [data, setData] = useState([])
+  
 
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const App = () => {
         return <Characters key={dat.name} data={dat} />
       })
     }
+    
     </div>
   )
   

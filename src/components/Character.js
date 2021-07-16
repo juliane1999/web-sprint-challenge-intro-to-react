@@ -1,25 +1,36 @@
 // Write your Character component here
-import React from 'react'
+import axios from 'axios';
+import React, {useState,useEffect} from 'react'
 import styled from 'styled-components'
 
 export default function Character (props) {
     const {characterData} = props;
+    const [details,setDetails] = useState(null)
+
+    useEffect(() => {
+        axios.get(`https://swapi.dev/api/people`)
+        .then(res => {
+            console.log(res.data)
+            setDetails(res.data)
+        })
+        .catch(err => console.log(err))
+    }, [])
+
+
 
     return (
-        <div className = 'character-container'>
+        
             <div className = 'character-info'>
-                <div>
-                    <p>Gender: {characterData.gender}</p>
-                    <p>Height: {characterData.height}</p>
-                    <p>Mass: {characterData.mass}</p>
-                    <p>BirthYear: {characterData.birth_year}</p>
-                    <p>Eye Color: {characterData.eye_color}</p>
-                    <p>Hair Color: {characterData.hair_color}</p>
-                    <p>Skin Color: {characterData.skin_color}</p>
-                </div>
+                 <button onClick={characterData}>
+                    <p>Gender: {details.gender}</p>
+                    <p>Height: {details.height}</p>
+                    <p>Mass: {details.mass}</p>
+                    <p>BirthYear: {details.birth_year}</p>
+                    <p>Eye Color: {details.eye_color}</p>
+                    <p>Hair Color: {details.hair_color}</p>
+                    <p>Skin Color: {details.skin_color}</p>
+               </button>
 
             </div>
-
-        </div>
     )
 }
