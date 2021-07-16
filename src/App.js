@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios'
-import Characters from './components/Character'
+import Character from './components/Character'
 import styled from 'styled-components';
 
 const App = () => {
@@ -24,23 +24,25 @@ const App = () => {
     .catch(err => console.log(err))
   }, [])
 
- const Character = props => (
+ const Characters = props => (
    <div className = 'character'>
-     <button Onclick = {() => (props.data.name)}></button>
+     <button Onclick = {() => (props.data.name)}>{props.data.name}</button>
    </div>
  )
 
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
-      {
-        data.map(() => (
-          <div className='name'>{data.name}
-          </div>
-        ))}
+    <h1 className="Header">Characters</h1>
+    {
+      data.map(dat => {
+        return <Characters key={dat.name} data={dat} />
+      })
+    }
     </div>
-  );
-}
-
+  )
+  
+    
+        
+  }
 export default App;
