@@ -24,9 +24,21 @@ const App = () => {
     .catch(err => console.log(err))
   }, [])
 
+ const Character = props => (
+   <div className = 'character'>
+     <button Onclick = {() => (props.data.name)}></button>
+   </div>
+ )
+
+
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+      {
+        data.map(() => (
+          <div className='name'>{data.name}
+          </div>
+        ))}
     </div>
   );
 }
