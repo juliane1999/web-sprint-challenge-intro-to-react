@@ -4,7 +4,9 @@ import React, {useState,useEffect} from 'react'
 import styled from 'styled-components'
 
 const StyledCharacter = styled.div`
-background-color:#132c3a
+color: #666699;
+border: 5px solid  #666699;
+font-size: 2rem;
 `
 
 export default function Character (props) {
@@ -33,7 +35,7 @@ export default function Character (props) {
 
 
     return (
-        
+        <StyledCharacter>
             <div className = 'character-info'>
                 { details &&
                 <>
@@ -48,5 +50,6 @@ export default function Character (props) {
                </>
 }
             </div>
+            </StyledCharacter>
     )
 }
