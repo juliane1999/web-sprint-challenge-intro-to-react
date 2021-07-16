@@ -13,7 +13,14 @@ const App = () => {
   // sync up with, if any.
 
   const [data, setData] = useState([])
+  const [nameId,setNameId] = useState(null)
   
+  const openDiv = open => {
+    setNameId(open)
+  }
+  const closeDiv = () => {
+    setNameId(null)
+  }
 
 
   useEffect(() => {
@@ -27,7 +34,7 @@ const App = () => {
 
  const Characters = props => (
    <div className = 'character'>
-     <button Onclick = {() => (props.data.name)}>{props.data.name}</button>
+     <button onClick = {() => openDiv(props.data)}>{props.data.name}</button>
    </div>
  )
 
@@ -40,7 +47,9 @@ const App = () => {
         return <Characters key={dat.name} data={dat} />
       })
     }
-    
+    {
+      nameId && <Character characterData={nameId} close={closeDiv} />
+    }
     </div>
   )
   
